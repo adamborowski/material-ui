@@ -150,6 +150,10 @@ class MenuItem extends Component {
      * The value of the menu item.
      */
     value: PropTypes.any,
+    /**
+     * Configure inner menu to be mulitple
+     */
+    multiple: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -256,6 +260,7 @@ class MenuItem extends Component {
       anchorOrigin,
       targetOrigin,
       value, // eslint-disable-line no-unused-vars
+      mestedMenuMultiple,
       ...other
     } = this.props;
 
@@ -303,7 +308,7 @@ class MenuItem extends Component {
           useLayerForClickAway={false}
           onRequestClose={this.handleRequestClose}
         >
-          <Menu desktop={desktop} disabled={disabled} style={nestedMenuStyle}>
+          <Menu desktop={desktop} disabled={disabled} style={nestedMenuStyle} multiple={nestedMenuMultiple}>
             {React.Children.map(menuItems, this.cloneMenuItem)}
           </Menu>
         </Popover>
