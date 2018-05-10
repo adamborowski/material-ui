@@ -3,4 +3,4 @@ coverage:
     patch:
       default:
         threshold: 0.0%
-comment: false
+comment: falseb
